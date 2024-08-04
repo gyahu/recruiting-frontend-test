@@ -1,0 +1,54 @@
+.RadioButtonCard {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-bottom: none;
+  padding: 12px;
+  margin: 0px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.RadioButtonCard:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.RadioButtonCard:last-child {
+  border-bottom: 1px solid gray;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.selected {
+  background-color: rgba(0, 0, 255, 0.1);
+  border: 1px solid rgba(0, 0, 255, 0.5) !important;
+}
+
+.RadioButtonCard-name {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.RadioButtonCard-button {
+  padding: 2px;
+  margin-right: 4px;
+}
+
+.RadioButtonCard-title {
+  color: black;
+  margin-right: 2px
+}
+.RadioButtonCard-subtitle {
+  color: gray;
+  font-size: 14px;
+}
+
+.RadioButtonCard-description {
+  color: black;
+  margin-right: 50px;
+}
+
+.RadioButtonCard-details {
+  color: gray;
+}
