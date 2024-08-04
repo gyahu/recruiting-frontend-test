@@ -6,16 +6,20 @@ import Modal from './presentation/generics/modal/Modal';
 import AssignResult from './presentation/assign-result/AssignResult';
 import { RadioButtonCardProps } from './presentation/generics/radio/RadioButtonCard';
 import { appTexts } from './texts';
+import assignNoteUseCase from './domain/invoices/assign-note-usecase';
 
 function App() {
   const [selectedBill, setSelectedBill] = useState(undefined as RadioButtonCardProps | undefined);
   const [selectedNote, setSelectedNote] = useState(undefined as RadioButtonCardProps | undefined);
   const [show, setShow] = useState(false);
-  const toggleModal = () => setShow(!show);
+  const assignNote = () => {
+    assignNoteUseCase(selectedNote!.title);
+    setShow(true);
+  }
   const reset = () => {
     setSelectedBill(undefined);
     setSelectedNote(undefined);
-    toggleModal();
+    setShow(false);
   }
   return (
     <div className="App">
@@ -35,7 +39,7 @@ function App() {
           <br/></div>}
 
       </div>
-      { selectedNote && <button className="App-button" type="button" onClick={toggleModal}> { appTexts.button } </button> }
+      { selectedNote && <button className="App-button" type="button" onClick={assignNote}> { appTexts.button } </button> }
     </div>
   );
 }
