@@ -1,0 +1,53 @@
+.Summary {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 255, 0.5);
+  background-color: rgba(0, 0, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0px;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 8px 0px;
+}
+
+.Summary-name {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.Summary-button {
+  padding: 2px;
+  margin-right: 4px;
+}
+
+.Summary-title {
+  color: black;
+  margin-right: 2px
+}
+.Summary-subtitle {
+  color: gray;
+  font-size: 14px;
+}
+
+.Summary-description {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.Summary-main {
+  color: black;
+  margin-right: 2px
+}
+.Summary-secondary {
+  color: gray;
+  font-size: 14px;
+}
+
+.Summary-details {
+  color: gray;
+}
