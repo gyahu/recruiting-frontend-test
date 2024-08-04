@@ -25,3 +25,9 @@
   border-radius: 10px;
   cursor: pointer
 }
+
+.dev-helper {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

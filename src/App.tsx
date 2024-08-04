@@ -21,8 +21,13 @@ function App() {
     setSelectedNote(undefined);
     setShow(false);
   }
+  const resetAll = () => {
+    reset();
+    localStorage.clear();
+  }
   return (
     <div className="App">
+      <button className="App-button dev-helper" type="button" onClick={resetAll}> { appTexts.reset } </button>
       <Modal show={show}>
         {selectedNote && <AssignResult handleClose={reset} assignedNote={selectedNote}/>}
       </Modal>
