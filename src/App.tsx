@@ -12,10 +12,15 @@ function App() {
   const [selectedNote, setSelectedNote] = useState(undefined as RadioButtonCardProps | undefined);
   const [show, setShow] = useState(false);
   const toggleModal = () => setShow(!show);
+  const reset = () => {
+    setSelectedBill(undefined);
+    setSelectedNote(undefined);
+    toggleModal();
+  }
   return (
     <div className="App">
       <Modal show={show}>
-        <AssignResult handleClose={toggleModal}/>
+        <AssignResult handleClose={reset}/>
       </Modal>
       <div className="App-header">
         <Billings
