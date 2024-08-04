@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Modal show={show}>
-        <AssignResult handleClose={reset}/>
+        {selectedNote && <AssignResult handleClose={reset} assignedNote={selectedNote}/>}
       </Modal>
       <div className="App-header">
         <Billings
