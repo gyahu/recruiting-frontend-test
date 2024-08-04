@@ -21,6 +21,7 @@ function Notes({selectedBill, selectedNote, setSelectedNote}) {
     getNotesUseCase(selectedBill.title).then(mapInvoiceFor(selectedBill.title)).then(setNotes);
   }, [selectedBill, selectedNote]);
   useEffect(() => {
+    setSelectedNote(undefined);
     setRadioName(selectedBill.title);
   }, [selectedBill]);
   const onClick = (note) => () => setSelectedNote(note);
