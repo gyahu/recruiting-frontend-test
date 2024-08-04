@@ -1,9 +1,9 @@
 import { AxiosResponse } from "axios";
-import { getPendingInvoices } from "../../data/invoices/repository"
+import { getPendingInvoices, loadPendingInvoices } from "../../data/invoices/repository"
 import { mapToDomainModel } from "./mapper";
 import { InvoiceDomainModel } from "./invoices";
 import { Invoice } from "../../data/invoices/invoices";
-import { getValuesIn, getLastUpdateOn } from "../../data/resource-manager.ts/storage";
+import { getLastUpdateOn } from "../../data/resource-manager.ts/storage";
 
 const isSuccess = (response: AxiosResponse<unknown>) => Math.trunc(response.status / 100) === 2;
 
@@ -12,7 +12,7 @@ const parseInvoices = (invoices: Invoice[]) => invoices
   .map(mapToDomainModel)
 
 const getBillsUseCase = async (): Promise<InvoiceDomainModel[]> => {
-  const localInvoices = getValuesIn<Invoice[]>('pendingInvoices') ?? [];
+  const localInvoices = loadPendingInvoices();
   const lastUpdate = getLastUpdateOn('pendingInvoices');
   const secondsSinceLastUpdate = lastUpdate ? (new Date().getTime() - lastUpdate.getTime()) / 1000 : Infinity;
   if (localInvoices.length > 0 && secondsSinceLastUpdate < 60) {
