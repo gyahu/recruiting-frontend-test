@@ -4,11 +4,13 @@ import RadioButtonCard, { RadioButtonCardProps } from '../generics/radio/RadioBu
 import getNotesUseCase from '../../domain/invoices/get-notes-usecase';
 import { InvoiceDomainModel } from '../../domain/invoices/invoices';
 import { notesTexts } from "./texts";
+import { convertTo, toCurrency } from "../../utils/numbers";
 
 const mapInvoiceFor = (invoiceId: string) => (invoices: InvoiceDomainModel[]): RadioButtonCardProps[] => invoices.map(invoice => ({
   title: invoice.id,
   subtitle: invoice.organization,
-  description: invoice.amount.toString(),
+  description: toCurrency('CLP')(convertTo(invoice.currency, 'CLP')(invoice.amount)),
+  secondaryDescription: toCurrency('USD')(convertTo(invoice.currency, 'USD')(invoice.amount)),
   details: invoiceId,
 }));
 
