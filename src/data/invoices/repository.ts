@@ -11,4 +11,11 @@ export const getPendingInvoices = async (
   return pendingInvoices;
 }
 
-export const loadInvoices = (): Invoice[] => getValuesIn<Invoice[]>('pendingInvoices') ?? [];
+export const loadPendingInvoices = (): Invoice[] => getValuesIn<Invoice[]>('pendingInvoices') ?? [];
+
+export const loadAssignedInvoices = (): string[] => getValuesIn<string[]>('assignedInvoices') ?? [];
+
+export const assignInvoice = (invoiceId: string) => {
+  const invoices = loadAssignedInvoices();
+  saveTo('assignedInvoices', invoices.concat(invoiceId));
+}
