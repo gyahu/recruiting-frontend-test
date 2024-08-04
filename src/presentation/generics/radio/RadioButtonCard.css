@@ -45,8 +45,18 @@
 }
 
 .RadioButtonCard-description {
-  color: black;
+  display: flex;
+  align-items: center;
   margin-right: 50px;
+}
+
+.RadioButtonCard-main {
+  color: black;
+  margin-right: 2px
+}
+.RadioButtonCard-secondary {
+  color: gray;
+  font-size: 14px;
 }
 
 .RadioButtonCard-details {
